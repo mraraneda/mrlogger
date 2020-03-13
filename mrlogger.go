@@ -6,10 +6,11 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"mrlogger/logtools"
 	"os"
 	"runtime"
 	"strings"
+
+	"github.com/mraraneda/mrlogger/logtools"
 )
 
 // Check maneja errores de forma básica: Recibe elemento "err" y
