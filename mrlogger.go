@@ -1,4 +1,4 @@
-// Package mrlogger filter log outputs by levels from highest to lowest
+// Package mrlogger is a customized for error handling and login with log levels:
 // (4: "DEBUG", 3: "INFO", 2: "WARN", 1: "ERROR")
 package mrlogger
 
