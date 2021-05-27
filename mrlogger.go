@@ -44,9 +44,9 @@ func chopPath(original string) string {
 	return original[i+1:]
 }
 
-func NewLoggingLevel(l string) {
-	lv, err := checkLevel(l)
-	Check(err, "Logging input:", l, InThisPoint())
+func NewLoggingLevel(level string) {
+	lv, err := checkLevel(level)
+	Check(err, "Logging input:", level, InThisPoint())
 
 	filter := &logtools.LevelFilter{
 		Levels:   []logtools.LogLevel{"DEBUG", "INFO", "WARN", "ERROR"},
@@ -72,7 +72,7 @@ func Info(v ...interface{}) {
 	log.Println("[INFO ]", v)
 }
 
-func checkLevel(l string) (string, error) {
+func checkLevel(level string) (string, error) {
 
 	ls := []string{
 		4: "DEBUG",
@@ -82,18 +82,18 @@ func checkLevel(l string) (string, error) {
 	}
 
 	valid := false
-	l = strings.Trim(l, " ")
+	level = strings.Trim(level, " ")
 
 	for _, v := range ls {
-		if strings.EqualFold(l, v) {
-			l = v
+		if strings.EqualFold(level, v) {
+			level = v
 			valid = true
 		}
 	}
 
 	if !valid {
-		return l, errors.New("Logging level is not: DEBUG, INFO, WARN, ERROR")
+		return level, errors.New("Logging level is not: DEBUG, INFO, WARN, ERROR")
 	} else {
-		return l, nil
+		return level, nil
 	}
 }
